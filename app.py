@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from hashlib import sha256
-from PasswordCheckerPhase3.backend.passwordCheckerPhase3 import passwordChecker
+from backend.passwordCheckerPhase3 import passwordChecker
 
 
 app = Flask(__name__, template_folder='frontend/templates', static_folder='frontend/static')
