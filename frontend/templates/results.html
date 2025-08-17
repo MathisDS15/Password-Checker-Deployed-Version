@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <title>Password Checker - Results</title>
+</head>
+<body>
+    <div id="title">
+        <h2>Password Checker - Results</h2>
+    </div>
+    <div id="results">
+        <div class="container">
+            <div class="strength">
+                <h3>Strength</h3>
+                <p id="strength-result">
+                    {% if strength == "Very strong" %}
+                        Your password is very strong! Excellent choice!
+                    {% elif strength == "Strong" %}
+                        Your password is strong! Good job!
+                    {% elif strength == "Medium" %}
+                        Your password is medium. It's better than weak, but could still be improved.
+                    {% elif strength == "Weak" %}
+                        Your password is weak. Consider using a longer and more complex password.
+                    {% elif strength == "Very weak" %}
+                        Your password is very weak. Please change it immediately!
+                    {% else %}
+                        Unable to determine the strength of your password.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="leaked">
+                <h3>Your password was leaked ?</h3>
+                <p id="leaked-result">
+                    {% if is_pwned %}
+                        Your password has been found in data breaches. Please change it!
+                    {% else %}
+                        Good news! Your password hasn't been found in any known data breaches.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="entropy">
+                <h3>Entropy</h3>
+                <p id="entropy-result">Your password entropy is: {{ entropy }} bits.</p>
+            </div>
+            <button class="back-button" onclick="window.location.href='{{ url_for('check_password') }}'">Back</button>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href= "{{ url_for('index') }}" class="button">Home</a></li>
+                    <li><a href= "{{ url_for('check_password') }}" class="button">Check Password</a></li>
+                    <li><a href="https://github.com/MathisDS15/Password-Checker" class="button">GitHub</a></li>
+                    <li><a href= "{{ url_for('help') }}" class="button">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

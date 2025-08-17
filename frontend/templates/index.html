@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <title>Password Checker</title>
+</head>
+<body>
+    <div id="introduction">
+        <div class="container">
+            <div class="presentation">
+                <h1>Password Checker<br></h1>
+                <p>Hi ! This website helps you check if your password is strong and safe.<br></p>
+                <p><b>Created by Mathis, engineering student in France</b></p>
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href= "{{ url_for('index') }}" class="button">Home</a></li>
+                    <li><a href= "{{ url_for('check_password') }}" class="button">Check Password</a></li>
+                    <li><a href="https://github.com/MathisDS15/Password-Checker" class="button">GitHub</a></li>
+                    <li><a href= "{{ url_for('help') }}" class="button">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
